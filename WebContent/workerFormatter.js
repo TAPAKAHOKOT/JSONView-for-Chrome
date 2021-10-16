@@ -45,7 +45,7 @@ function valueToHTML(value) {
 		output += decorateWithSpan(value, "type-number");
 	else if (valueType == "string")
 		if (/^(http|https):\/\/[^\s]+$/.test(value))
-			output += decorateWithSpan('"', "type-string") + '<a href="' + value + '">' + htmlEncode(value) + '</a>' + decorateWithSpan('"', "type-string");
+			output += decorateWithSpan('"', "type-string") + '<a href="' + value + '" target="_blank">' + htmlEncode(value) + '</a>' + decorateWithSpan('"', "type-string");
 		else if (options.formatMultilineStrings && (value.match(/\n/g) || []).length > 2)
 			output += '<div class="type-string-multiline">' + htmlEncode(value) + '</div>';
 		else
