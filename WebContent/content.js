@@ -69,7 +69,7 @@ function displayUI(theme, html) {
 	optionsElement.src = chrome.runtime.getURL("options.png");
 	toolboxElement.appendChild(expandElement);
 	toolboxElement.appendChild(reduceElement);
-	toolboxElement.appendChild(viewSourceElement);
+	// toolboxElement.appendChild(viewSourceElement);
 	toolboxElement.appendChild(optionsElement);
 	document.body.appendChild(toolboxElement);
 	document.body.addEventListener('click', ontoggle, false);
@@ -79,7 +79,8 @@ function displayUI(theme, html) {
 	expandElement.addEventListener('click', onexpand, false);
 	reduceElement.addEventListener('click', onreduce, false);
 	optionsElement.addEventListener("click", function() {
-		window.open(chrome.runtime.getURL("options.html"));
+		// window.open(chrome.runtime.getURL("options.html"));
+		navigator.clipboard.writeText(chrome.runtime.getURL("options.html"));
 	}, false);
 	copyPathElement.addEventListener("click", function() {
 		port.postMessage({
